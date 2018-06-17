@@ -6,6 +6,10 @@ import { AppComponent } from './app.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { AddDealComponent } from './add-deal/add-deal.component';
 import { ViewDealComponent } from './view-deal/view-deal.component';
+import {FormsModule} from "@angular/forms";
+import {AngularFireModule} from "angularfire2";
+import {environment} from "../environments/environment";
+import {AngularFireDatabaseModule} from "angularfire2/database";
 
 
 @NgModule({
@@ -16,7 +20,10 @@ import { ViewDealComponent } from './view-deal/view-deal.component';
     ViewDealComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]
