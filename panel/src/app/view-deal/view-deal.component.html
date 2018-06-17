@@ -11,15 +11,17 @@
         <th scope="col">Place</th>
         <th scope="col">Description</th>
         <th scope="col">Image URL</th>
+        <th scope="col">Delete</th>
       </tr>
       </thead>
       <tbody>
-      <tr>
+      <tr *ngFor="let deal of dealsObservable | async">
         <th scope="row">1</th>
-        <td>Some Pizza</td>
-        <td>CrazyHut</td>
-        <td>{{ truncate('You will never get a discount like this!')+'...'}}</td>
-        <td>{{ truncate('https://livekindlyproduction-8u6efaq1lwo6x9a.stackpathdns.com/wp-content/uploads/2017/08/pizza-vegan-1280x640.jpg')+'...'}}</td>
+        <td>{{ deal.title}}</td>
+        <td>{{ deal.place}}</td>
+        <td>{{ truncate(deal.description)+'...'}}</td>
+        <td>{{ truncate(deal.imageURL)+'...'}}</td>
+        <td><span style="color: red;">X</span></td>
       </tr>
       </tbody>
     </table>

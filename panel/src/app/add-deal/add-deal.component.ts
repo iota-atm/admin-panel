@@ -18,6 +18,6 @@ export class AddDealComponent implements OnInit {
   }
 
   onSubmit() {
-    this.dealsService.addDeals(this.description, this.imageUrl, this.place, this.title);
+    this.dealsService.addDeal('deals', this.description, this.imageUrl, this.place, this.title);
   }
 }

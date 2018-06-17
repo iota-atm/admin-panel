@@ -1,13 +1,14 @@
 import {Injectable} from '@angular/core';
 import {AngularFireDatabase} from 'angularfire2/database';
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class DealsService {
   constructor(private db: AngularFireDatabase) {
   }
 
-  addDeals(description: String, imageUrl: String, place: String, title: String) {
-    this.db.list('deals').push({
+  addDeal(listPath, description: String, imageUrl: String, place: String, title: String) {
+    this.db.list(listPath).push({
       description: description,
       imageUrl: imageUrl,
       place: place,
@@ -15,5 +16,11 @@ export class DealsService {
     });
   }
 
+  getDeals(listPath): Observable<any[]> {
+    return this.db.list(listPath).valueChanges();
+  }
 
+  deleteDeal(listPath, key: String) {
+    this.db.list(listPath).remove(key);
+  }
 }
