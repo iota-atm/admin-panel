@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-view-deal',
@@ -7,12 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewDealComponent implements OnInit {
 
-  constructor() { }
+
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
-  truncate(str){
-    return str.substring(0,20);
+  truncate(str) {
+    return str.substring(0, 20);
   }
+
 }

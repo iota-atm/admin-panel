@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {DealsService} from '../services/deals.service';
 
 @Component({
   selector: 'app-add-deal',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddDealComponent implements OnInit {
 
-  constructor() { }
+  description: String;
+  title: String;
+  imageUrl: String;
+  place: String;
+  constructor(private dealsService: DealsService) { }
 
   ngOnInit() {
   }
 
+  onSubmit() {
+    this.dealsService.addDeals(this.description, this.imageUrl, this.place, this.title);
+  }
 }

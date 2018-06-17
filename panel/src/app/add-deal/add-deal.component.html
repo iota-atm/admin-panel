@@ -3,22 +3,24 @@
     Add Deals
   </div>
   <div class="card-body">
-    <form>
+    <form (submit)="onSubmit(); myForm.reset()" #myForm="ngForm">
       <div class="form-group">
         <label for="title">Title</label>
-        <input type="text" class="form-control" id="title" name="title" placeholder="Enter title">
+        <input type="text" class="form-control" id="title" name="title" placeholder="Enter title" [(ngModel)]="title">
       </div>
       <div class="form-group">
         <label for="description">Description</label>
-        <input type="text" class="form-control" id="description" name="description" placeholder="Enter description">
+        <input type="text" class="form-control" id="description" name="description" placeholder="Enter description"
+               [(ngModel)]="description">
       </div>
       <div class="form-group">
         <label for="imageUrl">Image URL</label>
-        <input type="text" class="form-control" id="imageUrl" name="imageUrl" placeholder="Enter imageUrl">
+        <input type="text" class="form-control" id="imageUrl" name="imageUrl" placeholder="Enter imageUrl"
+               [(ngModel)]="imageUrl">
       </div>
       <div class="form-group">
         <label for="place">Place</label>
-        <input type="text" class="form-control" id="place" name="place" placeholder="Enter place">
+        <input type="text" class="form-control" id="place" name="place" placeholder="Enter place" [(ngModel)]="place">
       </div>
       <button type="submit" class="btn btn-primary">Add Deal</button>
     </form>
