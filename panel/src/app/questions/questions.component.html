@@ -1,0 +1,71 @@
+<div class="title-bg"><span class="title"> Deals  </span></div>
+<mat-divider></mat-divider>
+
+<mat-card class="content">
+  <mat-card-content>
+    <mat-card>
+      <form (submit)="addItem(); myForm.reset()" #myForm="ngForm">
+        <mat-form-field>
+          <input type="text" matInput id="title" name="title" placeholder="Enter title" [(ngModel)]="title">
+        </mat-form-field>
+        <mat-form-field>
+          <input type="text" matInput id="description" name="description" placeholder="Enter description"
+                 [(ngModel)]="description">
+        </mat-form-field>
+        <mat-form-field>
+          <input type="text" matInput id="imageURL" name="imageURL" placeholder="Enter imageURL"
+                 [(ngModel)]="imageURL">
+        </mat-form-field>
+        <mat-form-field>
+          <input type="text" matInput id="place" name="place" placeholder="Enter place" [(ngModel)]="place">
+        </mat-form-field>
+        <button type="submit" mat-button color="primary">Add Deal</button>
+      </form>
+      <button type="submit" mat-button color="primary" (click)="addDefaultDeals()">Add Default Deals</button>
+    </mat-card>
+
+    <!-- Question List -->
+    <mat-accordion>
+      <mat-expansion-panel *ngFor="let question of questions | async">
+        <!-- Header -->
+        <mat-expansion-panel-header>
+          <mat-panel-title> {{ question.title }}</mat-panel-title>
+        </mat-expansion-panel-header>
+        <br>
+        <img src="{{ question.imageUrl }}" width="200px" height="200px"><br>
+        <!-- Title -->
+        <mat-form-field>
+          <input matInput #titleInput placeholder="Title" [value]="question.title">
+        </mat-form-field>
+        <!-- Description -->
+        <mat-form-field>
+          <textarea rows="2" matInput #descriptionInput placeholder="Description"
+                    [value]="question.description"></textarea>
+        </mat-form-field>
+
+        <section class="section">
+          <!-- Place -->
+          <mat-form-field class="number-input">
+            <input matInput #placeInput type="text" placeholder="Place" [(ngModel)]="question.place">
+          </mat-form-field>
+          <!-- Image URL -->
+          <mat-form-field class="number-input">
+            <input matInput #imageUrlInput type="url" placeholder="Image Url" [(ngModel)]="question.imageURL">
+          </mat-form-field>
+        </section>
+        <!-- Buttons -->
+        <button mat-raised-button color="primary"
+                (click)="updateItem(question.key,  titleInput.value, descriptionInput.value, placeInput.value, imageUrlInput.value)">
+          Update
+        </button>
+        <button mat-button color="primary" (click)="deleteItem(question.key)">Delete</button>
+
+      </mat-expansion-panel>
+
+    </mat-accordion>
+    <br>
+
+
+  </mat-card-content>
+</mat-card>
+

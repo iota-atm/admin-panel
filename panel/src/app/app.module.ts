@@ -1,32 +1,49 @@
 import {BrowserModule} from '@angular/platform-browser';
 import {NgModule} from '@angular/core';
 
+import {AppRoutingModule} from './app-routing.module';
 
 import {AppComponent} from './app.component';
-import {NavbarComponent} from './navbar/navbar.component';
-import {AddDealComponent} from './add-deal/add-deal.component';
-import {ViewDealComponent} from './view-deal/view-deal.component';
+import {QuestionsComponent} from './questions/questions.component';
+
 import {FormsModule} from '@angular/forms';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {MatButtonModule, MatCheckboxModule} from '@angular/material';
+import {MatInputModule} from '@angular/material/input';
+import {MatCardModule} from '@angular/material/card';
+import {MatExpansionModule} from '@angular/material/expansion';
+import {MatDividerModule} from '@angular/material/divider';
+import {MatSelectModule} from '@angular/material/select';
+import {MatSidenavModule} from '@angular/material/sidenav';
+
 import {AngularFireModule} from 'angularfire2';
-import {environment} from '../environments/environment';
 import {AngularFireDatabaseModule} from 'angularfire2/database';
-import {DealsService} from './services/deals.service';
+import {environment} from '../environments/environment';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    AddDealComponent,
-    ViewDealComponent
+    QuestionsComponent,
   ],
   imports: [
     BrowserModule,
+    AppRoutingModule,
     FormsModule,
+    MatInputModule,
+    MatButtonModule,
+    MatCheckboxModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatExpansionModule,
+    MatDividerModule,
+    MatSelectModule,
+    MatSidenavModule,
+
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireDatabaseModule
   ],
-  providers: [DealsService],
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule {

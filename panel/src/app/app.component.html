@@ -1,11 +1,14 @@
-<app-navbar></app-navbar>
-<div class="container" style="margin-top: 30px">
-  <div class="row">
-    <div class="col-md-4">
-      <app-add-deal></app-add-deal>
-    </div>
-    <div class="col-md-8">
-      <app-view-deal></app-view-deal>
-    </div>
-  </div>
-</div>
+<!--The content below is only a placeholder and can be replaced.-->
+<mat-drawer-container class="drawer-container" fullscreen>
+    <!-- Sidebar -->
+    <mat-drawer class="drawer-sidebar" mode="side" opened="true">
+      <img src="assets/img/admin.png" alt="image" width="100">
+      <h2>Deals</h2>
+      <h3>Administration Panel</h3>
+    </mat-drawer>
+    <!-- Content -->
+    <mat-drawer-content class="drawer-content">
+      <app-questions></app-questions>
+    </mat-drawer-content>
+  </mat-drawer-container>
+<router-outlet></router-outlet>

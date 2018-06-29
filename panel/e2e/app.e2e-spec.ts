@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('panel App', () => {
+describe('play-to-learn-admin App', () => {
   let page: AppPage;
 
   beforeEach(() => {
